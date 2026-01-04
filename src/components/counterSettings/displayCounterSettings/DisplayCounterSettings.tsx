@@ -1,4 +1,6 @@
 import s from './DisplayCounterSettings.module.scss';
+import * as React from "react";
+
 
 export type DisplayCounterSettingsProps = {
   startValue: number
@@ -7,35 +9,51 @@ export type DisplayCounterSettingsProps = {
   setMaxValue: (maxValue: number) => void
 }
 
-export const DisplayCounterSettings = ({startValue, maxValue, setStartValue, setMaxValue}: DisplayCounterSettingsProps) => {
+export const DisplayCounterSettings = ({
+                                         startValue,
+                                         maxValue,
+                                         setStartValue,
+                                         setMaxValue
+                                       }: DisplayCounterSettingsProps) => {
+  // const [maxInputValue, setMaxInputValue] = useState(maxValue);
+  // const [startInputValue, setStartInputValue] = useState(maxValue);
+  const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = +e.target.value;
+    setMaxValue(value);
+  };
+
+  const handleStartChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = +e.target.value;
+    setStartValue(value);
+  };
   return (
     <div className={s.inputWrapper}>
       <div className={s.settingInput}>
         <label className={s.label}>
-          Max value: </label>
-          <input
-            type="number"
-            className={s.input}
-            step="1"
-            value={maxValue}
-            onChange={(e) => {setMaxValue(+e.currentTarget.value)}}
-          />
+          Max value:
+        </label>
+        <input
+          type="number"
+          className={s.input}
+          value={maxValue}
+          onChange={handleMaxChange}
+        />
 
       </div>
 
       <div className={s.settingInput}>
         <label className={s.label}>
-          Start value: </label>
-          <input
-            type="number"
-            className={s.input}
-            step="1"
-            value={startValue}
-            onChange={(e) => {setStartValue(+e.currentTarget.value)}}
-          />
+          Start value:
+        </label>
+        <input
+          type="number"
+          className={s.input}
+          value={startValue}
+          onChange={handleStartChange}
+        />
 
       </div>
-      
+
     </div>
   );
 };

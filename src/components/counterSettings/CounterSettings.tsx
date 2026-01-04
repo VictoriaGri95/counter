@@ -4,6 +4,7 @@ import {
 } from "./displayCounterSettings/DisplayCounterSettings.tsx";
 import {Button} from "../button/Button.tsx";
 
+
 export type CounterSettingsProps = {
   startValue: number;
   maxValue: number;
@@ -17,13 +18,19 @@ export const CounterSettings = ({
                                   setStartValue,
                                   setMaxValue
                                 }: CounterSettingsProps) => {
+
   const onClickHandler = () => {
     setStartValue(startValue);
     setMaxValue(maxValue);
   }
   return (
     <div className={s.counterWrapper}>
-      <DisplayCounterSettings startValue={startValue}  maxValue={maxValue} setStartValue={setStartValue} setMaxValue={setMaxValue}/>
+      <DisplayCounterSettings
+        startValue={startValue}
+        maxValue={maxValue}
+        setStartValue={setStartValue}
+        setMaxValue={setMaxValue}
+      />
       <div className={s.buttonsWrapper}>
         <Button
           title="set"

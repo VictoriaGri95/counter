@@ -3,13 +3,14 @@ import {useState} from "react";
 import s from './Counter.module.scss'
 import {Button} from "../button/Button.tsx";
 
+export type CounterProps = {
+  startValue: number;
+  maxValue: number;
+}
 
-export const Counter = () => {
-  const maxValue = 5
-  const minValue = 0
+export const Counter = ({startValue, maxValue}: CounterProps) => {
 
-
-  const [count, setCount] = useState(minValue)
+  const [count, setCount] = useState(startValue)
 
   const onClickIncHandler = () => {
     const newCount = count + 1;
@@ -19,15 +20,18 @@ export const Counter = () => {
   }
 
   const onClickResetHandler = () => {
-    setCount(minValue)
+    setCount(startValue)
 
   }
   const hasReachedMax = count === maxValue;
-  const isMinValue = count === minValue;
+  const isMinValue = count === startValue;
 
   return (
     <div className={s.counterWrapper}>
-      <DisplayCounter count={count} isMax={hasReachedMax}/>
+      <DisplayCounter
+        count={count}
+        isMax={hasReachedMax}
+      />
 
       <div className={s.buttonsWrapper}>
         <Button
@@ -45,4 +49,3 @@ export const Counter = () => {
     </div>
   );
 };
-

@@ -1,4 +1,4 @@
-.inputWrapper{
+.inputWrapper {
   display: flex;
   flex-direction: column;
   border: 2px solid #60b9ea;
@@ -18,7 +18,7 @@
 
 }
 
-.label{
+.label {
   color: #60b9ea;
   font-size: 1.5rem; // уменьшил размер для лучшего отображения
   font-weight: 800;
@@ -27,7 +27,7 @@
   align-self: center;
 }
 
-.input{
+.input {
   width: 100%; // занимает всю доступную ширину
   padding: 8px 12px;
   border: 2px solid #60b9ea;

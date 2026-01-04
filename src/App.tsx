@@ -7,17 +7,19 @@ import {useState} from "react";
 
 function App() {
   const [startValue, setStartValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(5);
+  const [maxValue, setMaxValue] = useState(8);
   return (
-      <div className={s.gridWrapper}>
+    <div className={s.gridWrapper}>
       <CounterSettings
         startValue={startValue}
         maxValue={maxValue}
         setStartValue={setStartValue}
-        setMaxValue={setMaxValue}/>
+        setMaxValue={setMaxValue}
+      />
       <Counter
         startValue={startValue}
-        maxValue={maxValue}/>
+        maxValue={maxValue}
+      />
     </div>
   )
 }
